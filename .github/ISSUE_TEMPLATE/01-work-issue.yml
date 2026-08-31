@@ -1,0 +1,65 @@
+name: 작업 이슈
+description: 기능 추가, 개선, 버그 수정 등의 작업을 등록합니다.
+
+body:
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: 이슈 유형
+      description: 작업 유형을 선택해 주세요.
+      options:
+        - ✨ 기능 추가 (Feature)
+        - 🔧 기능 개선 (Enhancement)
+        - ♻️ 리팩토링 (Refactor)
+        - 🐞 버그 수정 (Bug Fix)
+        - 🚨 긴급 수정 (Hotfix)
+        - 🧹 코드 및 설정 변경 (Chore)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target_area
+    attributes:
+      label: 대상 영역
+      description: 작업 대상 영역을 선택해 주세요.
+      multiple: true
+      options:
+        - FO
+        - BO
+        - API
+        - APP
+        - INFRA
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 상세 설명
+      description: 작업 목적과 변경 내용을 작성해 주세요.
+      placeholder: |
+        작업 배경:
+        변경 내용:
+        기대 결과:
+    validations:
+      required: true
+
+  - type: textarea
+    id: completion_conditions
+    attributes:
+      label: 완료 조건
+      description: 작업이 완료됐다고 판단할 수 있는 조건을 작성해 주세요.
+      placeholder: |
+        - [ ] 기능 구현
+        - [ ] 테스트 완료
+        - [ ] 운영 반영 확인
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_information
+    attributes:
+      label: 추가 전달 사항
+      description: 관련 이슈, 문서, 이미지 또는 참고 링크를 작성해 주세요.
+    validations:
+      required: false
